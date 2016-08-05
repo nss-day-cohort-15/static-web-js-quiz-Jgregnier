@@ -7,7 +7,8 @@ height.addEventListener("keydown", enter);
 char.addEventListener("keydown", enter);
 
 var treeObj = {};
-console.log(treeObj)
+
+
 function enter(e) {
     if (13 == e.keyCode) {
       makeTree()
@@ -33,5 +34,6 @@ function makeTree() {
     console.log(" ".repeat(treeObj.newHeight) + treeObj.newChar.repeat(addCounter));
     addCounter += 2;
     treeObj.newHeight-=1;
+
   }
 }
