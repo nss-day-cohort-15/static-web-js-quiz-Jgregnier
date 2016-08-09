@@ -1,27 +1,36 @@
 var button = document.getElementById("button");
+var height = document.getElementById("height");
+var char = document.getElementById("char");
 
-button.addEventListener("click", makeTree);
-document.addEventListener("keydown", enter);
+button.addEventListener("click", newTree);
+height.addEventListener("keydown", enter);
+char.addEventListener("keydown", enter);
+
 
 function enter(e) {
     if (13 == e.keyCode) {
-     makeTree()
- }
+      newTree()
+  }
 }
 
-function makeTree() {
-  var height = document.getElementById("height").value;
-  var char = document.getElementById("char").value;
+function newTree () {
+  var treeObj = {};
+  treeObj.newHeight = document.getElementById("height").value;
+  treeObj.newChar = document.getElementById("char").value;
+  makeTree(treeObj)
+}
 
-  if(height === "" || char === "") {
-    alert("You need to enter values!")
+function makeTree(treeObj) {
+  if(treeObj.newHeight === "" || treeObj.newChar === "") {
+      alert("You need to enter values!")
   }
 
   var addCounter = 1;
 
-  for (var i = 0; i < height; i += 0){
-    console.log(" ".repeat(height) + char.repeat(addCounter));
+  for (var i = 0; i < treeObj.newHeight; i += 0){
+    console.log(" ".repeat(treeObj.newHeight) + treeObj.newChar.repeat(addCounter));
     addCounter += 2;
-    height-=1;
+    treeObj.newHeight-=1;
+
   }
 }
