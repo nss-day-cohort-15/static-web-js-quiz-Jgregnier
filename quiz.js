@@ -2,28 +2,25 @@ var button = document.getElementById("button");
 var height = document.getElementById("height");
 var char = document.getElementById("char");
 
-button.addEventListener("click", makeTree);
+button.addEventListener("click", newTree);
 height.addEventListener("keydown", enter);
 char.addEventListener("keydown", enter);
-
-var treeObj = {};
 
 
 function enter(e) {
     if (13 == e.keyCode) {
-      makeTree()
-      console.log(treeObj)
+      newTree()
   }
 }
 
 function newTree () {
+  var treeObj = {};
   treeObj.newHeight = document.getElementById("height").value;
   treeObj.newChar = document.getElementById("char").value;
-  console.log(treeObj)
+  makeTree(treeObj)
 }
 
-function makeTree() {
-  newTree();
+function makeTree(treeObj) {
   if(treeObj.newHeight === "" || treeObj.newChar === "") {
       alert("You need to enter values!")
   }
